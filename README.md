@@ -1,4 +1,4 @@
-# php-array-loader
+# php-config-loader
 
 Webpack plugin that transforms php file into JSON object.
 
@@ -9,7 +9,7 @@ An app might have a backend side written in PHP and there are resources that wou
 ## Installation
 
 ```
-npm install php-array-loader
+npm install php-config-loader
 ```
 
 Add to `webpack.config.js` under `module.rules`:
