@@ -18,7 +18,7 @@ Add to `webpack.config.js` under `module.rules`:
     test: /\.php$/,
     use: [
         {
-            loader: __dirname + "/app/Frontend/Webpack/phpArrayToJson.js",
+            loader: "php-config-loader",
         }
     ]
 }
@@ -29,6 +29,15 @@ Then in your `js` file:
 import config from "../config.php";
 ```
 
+## Development
+
+```
+npm test
+git add .
+git commit
+npm version
+npm publish --access=public
+```
 
 ## License
 

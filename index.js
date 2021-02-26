@@ -37,6 +37,9 @@ function trimQuotes(text) {
     if (text.match(/^[0-9]+$/)) {
         return parseInt(text, 10);
     }
+    if (text.toLowerCase() === "true" || text.toLowerCase() === "false") {
+        return text.toLowerCase() === "true";
+    }
 
     throw Error("Unsupported quotes to trim.");
 }

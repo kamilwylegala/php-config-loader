@@ -7,7 +7,9 @@ describe("php-array-loader", () => {
             return [
                 "key1" => "value1",
                 'key2' => 'value2'
-                "key3" => 100
+                "key3" => 100,
+                "key4" => true,
+                "key5" => false
             ];
         `;
 
@@ -21,6 +23,8 @@ describe("php-array-loader", () => {
             key1: "value1",
             key2: "value2",
             key3: 100,
+            key4: true,
+            key5: false,
         });
     });
 });
