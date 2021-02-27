@@ -27,4 +27,25 @@ describe("php-array-loader", () => {
             key5: false,
         });
     });
+
+    it("should correctly unescape single quote", () => {
+        /**
+         * Webpack loads string: 'Don'\t' with double backslash/
+         */
+        const phpArray = `
+            return [
+                'key' => 'Don\\'t.'
+            ];
+        `;
+
+        const objectExport = loader(phpArray, {}, {});
+
+        const json = objectExport.substr("module.exports = ".length).trim();
+
+        const object = JSON.parse(json);
+
+        should(object).be.eql({
+            key: "Don't.",
+        });
+    });
 });
