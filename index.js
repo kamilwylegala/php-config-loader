@@ -26,7 +26,7 @@ function convertPhpArrayToJson(phpArray) {
 }
 
 function trimQuotes(text) {
-    text = text.replace(/(.+),$/, "$1").replace("\\'", "'");
+    text = text.replace(/(.+),$/, "$1").replace(/\\'/g, "'");
 
     if (text.startsWith(`'`)) {
         return text.replace(/^'(.+)'$/, "$1");

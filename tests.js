@@ -48,4 +48,22 @@ describe("php-array-loader", () => {
             key: "Don't.",
         });
     });
+
+    it("should correctly unescape multiple single quotes in the same string", () => {
+        const phpArray = `
+            return [
+                'key' => 'Joining adds you to this academy\\'s roster. You\\'ll be eligible.'
+            ];
+        `;
+
+        const objectExport = loader(phpArray, {}, {});
+
+        const json = objectExport.substr("module.exports = ".length).trim();
+
+        const object = JSON.parse(json);
+
+        should(object).be.eql({
+            key: "Joining adds you to this academy's roster. You'll be eligible.",
+        });
+    });
 });
